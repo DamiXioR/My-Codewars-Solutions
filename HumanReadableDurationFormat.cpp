@@ -37,7 +37,7 @@ auto timeUnitParser = [](const int requestedTimeUnitInSeconds, int seconds){
 void repleaceDelimitersWithSeparators(std::string& allUnitOfTimeInWords, int timeUnitsGtThanZero){
     std::string delimiter{"$"};
     while (timeUnitsGtThanZero > 2){
-        int founded = allUnitOfTimeInWords.find(delimiter);
+        const auto founded = allUnitOfTimeInWords.find(delimiter);
         if(founded != std::string::npos){
             allUnitOfTimeInWords.replace(founded, 1, ", ");
            --timeUnitsGtThanZero;
@@ -45,7 +45,7 @@ void repleaceDelimitersWithSeparators(std::string& allUnitOfTimeInWords, int tim
     }
 
     if(timeUnitsGtThanZero == 2){
-            int founded = allUnitOfTimeInWords.find(delimiter);
+            const auto founded = allUnitOfTimeInWords.find(delimiter);
             if(founded != std::string::npos){
                 allUnitOfTimeInWords.replace(founded, 1, " and ");
                 --timeUnitsGtThanZero;
